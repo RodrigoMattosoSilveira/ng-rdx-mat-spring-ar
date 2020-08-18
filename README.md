@@ -54,3 +54,124 @@ You develop apps in the context of an Angular workspace. To create a new workspa
 $ ng new ng-rdx-mat-spring-ar
 ````
 The `ng new` command prompts you for information about features to include in the initial app. Accept the defaults by pressing the `Enter` or `Return` key. The Angular CLI installs the necessary Angular npm packages and other dependencies. This can take a few minutes.bThe CLI creates a new workspace and a simple Welcome app, ready to run.
+Angular Material
+The [installation instructions](https://material.angular.io/guide/getting-started) are sufficient, with the following notes:
+* Exit the Angular application prior to installing Angular Material; if you do not, the application compilation fails, you have to exit, remove `node_modules`, run `npm install` and restart the application;
+* Use the `ng add @angular/material` installation option since it does all the work for you; note that I used `yarn` to install Angular Material, and had all kinds of problems, since Angular seems to depend on the `package.lock.json` file; hence, keep it simple and use the `ng add ...` command;
+````shell script
+$ ng add @angular/material
+````
+* Create a module to host all Material modules, and import into `app.modules`;
+```typescript
+import {NgModule} from '@angular/core';
+import {A11yModule} from '@angular/cdk/a11y';
+import {ClipboardModule} from '@angular/cdk/clipboard';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {PortalModule} from '@angular/cdk/portal';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import {CdkStepperModule} from '@angular/cdk/stepper';
+import {CdkTableModule} from '@angular/cdk/table';
+import {CdkTreeModule} from '@angular/cdk/tree';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTreeModule} from '@angular/material/tree';
+import {OverlayModule} from '@angular/cdk/overlay';
+
+@NgModule({
+    exports: [
+        A11yModule,
+        ClipboardModule,
+        CdkStepperModule,
+        CdkTableModule,
+        CdkTreeModule,
+        DragDropModule,
+        MatAutocompleteModule,
+        MatBadgeModule,
+        MatBottomSheetModule,
+        MatButtonModule,
+        MatButtonToggleModule,
+        MatCardModule,
+        MatCheckboxModule,
+        MatChipsModule,
+        MatStepperModule,
+        MatDatepickerModule,
+        MatDialogModule,
+        MatDividerModule,
+        MatExpansionModule,
+        MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatListModule,
+        MatMenuModule,
+        MatNativeDateModule,
+        MatPaginatorModule,
+        MatProgressBarModule,
+        MatProgressSpinnerModule,
+        MatRadioModule,
+        MatRippleModule,
+        MatSelectModule,
+        MatSidenavModule,
+        MatSliderModule,
+        MatSlideToggleModule,
+        MatSnackBarModule,
+        MatSortModule,
+        MatTableModule,
+        MatTabsModule,
+        MatToolbarModule,
+        MatTooltipModule,
+        MatTreeModule,
+        OverlayModule,
+        PortalModule,
+        ScrollingModule,
+    ]
+})
+export class AppMaterialModule {}
+```
+* Re-factor `tsconfig.app.json` to include the files we will create:
+```json
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": []
+  },
+  "include": ["src/**/*", "src/**/*.d.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts"],
+}
+```
+* Add the `<mat-slider min="1" max="100" step="1" value="1"></mat-slider>` element to the `app.component.html` right below the `Here are some resources to help your get strated`;
+* Observe the `slider` showing up in your app;
+* Remove the `slider`;
+* Refactor the `ng e2e` script to run from port 4201, so that you can run it while the application is running;
+* Run the unit, `yarn test`, and integration, `yarn e2e` tests to ensure all is well;
