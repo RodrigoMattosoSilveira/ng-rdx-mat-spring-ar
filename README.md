@@ -39,3 +39,18 @@ We will:
 * Install [Angular Material](https://material.angular.io/) 
 * Install [@NGRX](https://ngrx.io/);
 
+##Angular
+You use the Angular CLI to create projects, generate application and library code, and perform a variety of ongoing development tasks such as testing, bundling, and deployment.
+
+##Install the Angular CLI
+To install the Angular CLI, open a terminal window and run the following command:
+````shell script
+$ npm install -g @angular/cli
+````
+##Create a workspace and initial application
+You develop apps in the context of an Angular workspace. To create a new workspace and initial starter app, run the CLI command ng new and provide the name ng-rdx-mat-spring-ar, as shown here:
+
+````shell script
+$ ng new ng-rdx-mat-spring-ar
+````
+The `ng new` command prompts you for information about features to include in the initial app. Accept the defaults by pressing the `Enter` or `Return` key. The Angular CLI installs the necessary Angular npm packages and other dependencies. This can take a few minutes.bThe CLI creates a new workspace and a simple Welcome app, ready to run.
