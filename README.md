@@ -175,3 +175,29 @@ export class AppMaterialModule {}
 * Remove the `slider`;
 * Refactor the `ng e2e` script to run from port 4201, so that you can run it while the application is running;
 * Run the unit, `yarn test`, and integration, `yarn e2e` tests to ensure all is well;
+
+##Install Redux
+Exit the application, run the installation scripts below, run the unit and integration tests, then get back to work.
+* [Install](https://ngrx.io/guide/store/install) `*ngrx/store`:
+```shell script
+$ ng add @ngrx/store@latest --minimal false
+```
+* [Install](https://ngrx.io/guide/effects/install) `*ngrx/effects`:
+```shell script
+$ ng add @ngrx/effects@latest --minimal false
+```
+ * This command will automate the following steps:
+   * Update `package.json > dependencies` with `@ngrx/effects`.
+   * Run `npm install` to install those dependencies.
+   * By default will create a `src/app/app.effects.ts` file with an empty `AppEffects` class that has the `actions$: Actions` observable injected into it. If group flag is set to true then this file will be created under an effects folder.
+   * Create a` src/app/app.effects.spec.ts` spec file with a basic unit test. If group flag is set to true then this file will be created under an effects folder.
+   * Update your `src/app/app.module.ts > imports` array with `EffectsModule.forRoot([AppEffects])`. If you provided flags then the command will attempt to locate and update module found by the flags.
+* [Install](https://ngrx.io/guide/store-devtools/install) `*ngrx/store-devtools`:
+```shell script
+$ ng add @ngrx/store-devtools@latest
+```
+ * This command will automate the following steps:
+   * Update `package.json > dependencies` with `@ngrx/store-devtools`.
+   * Run `npm install` to install those dependencies.
+   * Update your `src/app.module.ts > imports` array with `StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })`. The `maxAge` property will be set to the flag maxAge if provided.
+
