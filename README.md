@@ -1,27 +1,41 @@
-# NgRdxMatSpringAr
+#The Action Required Application
+##Introduction
+This project's goal is to learn how to integrate [Redux](https://redux.js.org/) into [Angular](https://angular.io/) and [Angular Material](https://material.angular.io/).
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.4.
+A common learning tool for these kinds of projects is to write a `Todo` application using the target technologies. I'll do it, but will name the application `Action Required` since `todo` is a reserved word in my IDE.
 
-## Development server
+I'll leverage the [Todo Application](https://github.com/RodrigoMattosoSilveira/react-springboot-todo) I wrote to learn [React](https://reactjs.org/), [Redux](https://redux.js.org/), [Material UI](https://material-ui.com/) and [Springboot](https://spring.io/projects/spring-boot).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+I give a lot of credit to the work by the [Spring team contributors](https://github.com/spring-guides/tut-react-and-spring-data-rest/graphs/contributors), who wrote the excellent [React.js and Spring Data REST tutorial](https://spring.io/guides/tutorials/react-and-spring-data-rest/), showcasing a [React](https://reactjs.org/) as the front end and [Springboot](https://spring.io/projects/spring-boot) as the backend. 
 
-## Code scaffolding
+Note that each of these technologies are very complex, rendering any effort to provide a short explanation useless. Therefore, you must have working experience with them before tackling this exercise! I'll assume you have and will reference concepts assuming so.
+##Use Cases
+The use cases are quite simple:
+* An `Action Requested Item`, `AR` has the following attributes:
+  * State - Whether it is `active` or `done`;
+  * Text - A brief description of the expected result;
+  * Priority - One of three choices, LOW/MEDIUM/HUGH, with LOW as the default;
+  * Owner - The user that created it;
+* The user can filter the list of `ARs` by:
+  * Show all items, only `active`, or `done` `ARs`;
+  * Showing any combination of `LOW/MEDIUM/HIGH` `ARs`;
+  * The default is to show all `ARs`;
+* The user creates an new `AR` by clicking on a `Create` button in list of filtered `ARs`; when an user creates a new `AR`, the application navigates to the last page;
+* The user updates an existing `AR` by clicking on an attribute and editing it;
+* The user deletes an existing `AR` by clicking on its `delete` button; when an user deletes an `AR`  the application navigates to the page showing the `AR` immediately preceding it;
+* The user leverages the `Pagination menu` at the bottom of the `AR` list to configure the number of `ARs` per page; this menu includes options to select the number of items per page, to navigate to the first, previous, next, and lat pages;
+* Users can view all `ARs` but only update or delete their own `ARs`;
+* When a user updates or deletes an `AR`, all users receive notifications thereof;
+##Foundational technologies
+The foundational technologies that will support the effort are:
+* [Angular](https://angular.io/) - it replaces [React](https://reactjs.org/) used in the original [Todo Application](https://github.com/RodrigoMattosoSilveira/react-springboot-todo);
+* [@NGRX](https://ngrx.io/) - it replaces [react-redux](https://react-redux.js.org/) used in the original [Todo Application](https://github.com/RodrigoMattosoSilveira/react-springboot-todo);
+* [Angular Material](https://material.angular.io/) - it replaces [Material UI](https://material-ui.com/) used in the original [Todo Application](https://github.com/RodrigoMattosoSilveira/react-springboot-todo);
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#Installation
+We will:
+* Install [Angular](https://angular.io/);
+* Create the [ng-rdx-mat-spring-ar application];(https://github.com/RodrigoMattosoSilveira/ng-rdx-mat-spring-ar)
+* Install [Angular Material](https://material.angular.io/) 
+* Install [@NGRX](https://ngrx.io/);
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

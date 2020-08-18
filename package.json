@@ -1,6 +1,12 @@
 {
   "name": "ng-rdx-mat-spring-ar",
-  "version": "0.0.0",
+  "author": "Rodrigo Silveira",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RodrigoMattosoSilveira/ng-rdx-mat-spring-ar"
+  },
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
