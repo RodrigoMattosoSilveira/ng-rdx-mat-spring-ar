@@ -1,7 +1,7 @@
 {
   "name": "ng-rdx-mat-spring-ar",
   "author": "Rodrigo Silveira",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/RodrigoMattosoSilveira/ng-rdx-mat-spring-ar"
@@ -13,18 +13,23 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e --port 4201"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~10.0.5",
+    "@angular/cdk": "^10.1.3",
     "@angular/common": "~10.0.5",
     "@angular/compiler": "~10.0.5",
     "@angular/core": "~10.0.5",
     "@angular/forms": "~10.0.5",
+    "@angular/material": "^10.1.3",
     "@angular/platform-browser": "~10.0.5",
     "@angular/platform-browser-dynamic": "~10.0.5",
     "@angular/router": "~10.0.5",
+    "@ngrx/effects": "^10.0.0",
+    "@ngrx/store": "^10.0.0",
+    "@ngrx/store-devtools": "^10.0.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
